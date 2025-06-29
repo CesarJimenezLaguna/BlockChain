@@ -1,6 +1,9 @@
 import java.util.Date;
+import lombok.Getter;
 
+@Getter
 public class Block {
+
     public String hash;
     public String previousHash;
     private String data;
@@ -13,7 +16,7 @@ public class Block {
         this.hash = calculateHash();
     }
 
-    private String calculateHash() {
+    public String calculateHash() {
         String calculatedhash = StringUtil.applySha256(previousHash + data + timeStamp);
         return calculatedhash;
     }
